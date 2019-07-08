@@ -10,8 +10,7 @@ O objetivo deste documento é apresentar uma proposta para o trabalho a ser dese
 
 <!-- Apresentar o tema. -->
 ### 1. Tema
-
-  O trabalho final tem como tema o desenvolvimento de ...
+  Cinema
 
 <!-- Descrever e limitar o escopo da aplicação. -->
 ### 2. Escopo
