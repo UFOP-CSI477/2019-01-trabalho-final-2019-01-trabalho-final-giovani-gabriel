@@ -30,7 +30,7 @@
 				<td> {{ $user->name }} </td>
 				<td> {{ $user->email }} </td>
 				<td> {{ $user->cpf }} </td>
-				<td> {{ $user->type }} </td>
+				<td> @if($user->type==1)Administrador @else Usuário @endif </td>
 				<td><a class="text-white" href="{{route('user.show', $user->id )}}">Visualizar</a></td>
 			</tr>
 		@endforeach
