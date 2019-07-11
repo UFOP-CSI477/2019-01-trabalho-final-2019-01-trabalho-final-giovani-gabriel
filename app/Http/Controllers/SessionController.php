@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Session;
+use App\Ticket;
 use App\Room;
 use App\Film;
 
@@ -36,7 +37,7 @@ class SessionController extends Controller
     public function create()
     {
         if(Auth::user()->type == 1){
-            $films = Film::all();
+            $films = Film::where('released', 1)->get();
             $rooms = Room::all();
             return view('sessions.create')->with('films', $films)->with('rooms', $rooms);
         }
@@ -56,8 +57,9 @@ class SessionController extends Controller
     {
         if(Auth::user()->type == 1){
             $validator = Validator::make($request->all(), [
-                'room' => 'required',
-                'film' => 'required|max:255',
+                
+                'room_id' => 'required',
+                'film_id' => 'required',
                 'price' => 'required',
                 'dimensions' => 'required',
             ]);
@@ -85,8 +87,10 @@ class SessionController extends Controller
     public function show(Session $session)
     {
         if(Auth::user()->type == 1){
-            $films = Film::all();
-    	   return view('sessions.show')->with('session',$session)->with('films', $films);
+            $films = Film::all();   
+            $tickets = Ticket::all();   
+
+    	   return view('sessions.show')->with('session',$session)->with('films', $films)->with('tickets',$tickets);
         }
         else{
             session()->flash('mensagem', 'Acesso restrito a administradores!');
@@ -124,8 +128,8 @@ class SessionController extends Controller
     {
         if(Auth::user()->type == 1){
             $validator = Validator::make($request->all(), [
-                'room' => 'required',
-                'film' => 'required|max:255',
+                'room_id' => 'required',
+                'film_id' => 'required',
                 'price' => 'required',
                 'dimensions' => 'required',
             ]);

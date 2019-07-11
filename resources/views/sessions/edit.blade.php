@@ -81,6 +81,7 @@
 									</div>
 								</div>  
 							</div>
+							
 							<div class="card-footer bg-secondary border-dark text-right">
 								<div class="float-right">
 									<input class="btn btn-primary" onclick="return sessionValidator(document.sessionedit)" type="submit" name="btnSalvar" value="Atualizar">

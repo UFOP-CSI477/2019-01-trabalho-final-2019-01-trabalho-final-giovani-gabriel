@@ -121,9 +121,10 @@
 				</div>
 				<div class="container row">
 					<div class="col">
-						<p align="right"><input class="btn btn-success" onclick="return userValidator(document.usersshow)" type="submit" name="btnSalvar" value="Atualizar"></p>
-						</form>
+						<p align="right"><input class="btn btn-success" onclick="return userValidator(document.usersshow)" type="submit" name="btnSalvar" value="Atualizar">
+						</p>
 					</div>
+						</form>
 					@php
 					$bool = true;
 					foreach($tickets as $ticket)

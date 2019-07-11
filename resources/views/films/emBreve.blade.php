@@ -26,7 +26,7 @@
 	@php
 	$break = 0;
 	@endphp
-	<div class="card-deck">
+	{{-- <div class="card-deck"> --}}
 		@foreach($films as $film)
 		@if($break % 4 == 0)
 		<div class="card-deck">
@@ -42,18 +42,19 @@
 							@endphp
 						</p>
 						@else
-						<p class="card-text">{{$film->synopsis}}</p>
+						<p class="card-text">{{$film->synopsis}}
+						</p>
 						@endif
 						<p>
 						</div>
 						<div class="card-footer">
-							<p class="card-text text-right"><u><small class="text-muted"><a class="text-white text" href="{{route('films.show', $film->id )}}">Ver Mais</a></small></p></u>
+							<p class="card-text text-right"><u><small class="text-muted"><a class="text-white text" href="{{route('films.show', $film->id )}}">Ver Mais</a></small></u></p>
 						</div>
 					</div>
 					@if($break % 4 == 3)
-				</div>
-				<br>
-				@endif
+						</div>
+						<br>
+						@endif
 				@php
 				$break++;
 				@endphp

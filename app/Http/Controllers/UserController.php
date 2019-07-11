@@ -113,7 +113,6 @@ class UserController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|max:255',
             'cpf' => 'required|min:11|max:11',
-            'type' => 'required',
             ]);
             if ($validator->fails()) {
                 session()->flash('mensagem', 'Dados inválidos');

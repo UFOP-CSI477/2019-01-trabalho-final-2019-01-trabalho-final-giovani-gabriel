@@ -22,7 +22,7 @@ function filmValidator(form){
 
 	var v1 = validarTexto(title);
 	var v2 = validarNumero(time);
-	var v3 = validarNumero(rating);
+	var v3 = validarRating(rating);
 	var v4 = validarTexto(casting);
 	var v5 = validarTexto(synopsis);
 	var v6 = validarTexto(photo);
@@ -106,6 +106,20 @@ function validarNumero(campo){
 	var n = parseFloat(campo.value);
 
 	if(campo.value.length == 0 || isNaN(n) || n<=0){
+		campo.classList.add("is-invalid");
+		campo.value = "";
+		campo.focus();
+		return false;
+	}
+	campo.classList.remove("is-invalid");
+	campo.classList.add("is-valid");
+	return true;
+}
+
+function validarRating(campo){
+	var n = parseFloat(campo.value);
+
+	if(campo.value.length == 0 || isNaN(n) || n<0){
 		campo.classList.add("is-invalid");
 		campo.value = "";
 		campo.focus();

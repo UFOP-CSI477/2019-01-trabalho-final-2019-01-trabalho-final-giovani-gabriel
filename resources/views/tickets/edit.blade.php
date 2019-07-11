@@ -1,6 +1,6 @@
 @extends('principal')
 
-@section('titulo','Editar Sessão')
+@section('titulo','Editar Ticket')
 
 @section('breadcrumb')
 <nav aria-label="breadcrumb">
@@ -30,12 +30,12 @@
 						<div class="form-group row">
 							<label for="session_id" class="col-md-4 col-form-label text-md-right">Sessão</label>
 							<div class="col-md-6">
-								<select  class="form-control" name="released">
+								<select  class="form-control" name="session_id">
 		                            @foreach ($sessions as $session)
 										@if($session->id == $ticket->session_id)
 											@foreach ($films as $film)
 												@if($film->id == $session->film_id)
-													<option value="session->id" 
+													<option value="{{$session->id}}" 
 					                            		@if($film->id == $session->film_id)
 					                            			selected
 					                            		@endif
@@ -50,9 +50,9 @@
 						<div class="form-group row">
 							<label for="user_id" class="col-md-4 col-form-label text-md-right">Usuário</label>
 							<div class="col-md-6">
-								<select class="form-control" name="released">
+								<select class="form-control" name="user_id">
 									@foreach ($users as $user)
-										<option value="user->id" 
+										<option value="{{$user->id}}" 
 											@if($user->id == $ticket->user_id)
 												selected
 											@endif

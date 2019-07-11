@@ -55,10 +55,20 @@
 					<div class="d-flex justify-content-end">
 						<a class="btn btn-success btn-sm mr-2" role="button" aria-pressed="true" href={{ route('session.index') }}>Voltar</a>
 						<a class="btn btn-info btn-sm mr-2" role="button" aria-pressed="true" href={{ route('session.edit',$session->id) }}>Editar</a>
+						@php
+					$bool = true;
+					foreach($tickets as $ticket)
+						if($ticket->session_id == $session->id)
+							$bool = false;
+						@endphp
 						<form id="logout-form" method="post" action="{{ route('session.destroy',$session->id) }}" onsubmit="return confirm('cofirma exclusão do exame?');">
 							@csrf
 							@method('DELETE')
-							<input class="btn btn-danger btn-sm" type="submit" value="Excluir">
+							<input class="btn btn-danger btn-sm" type="submit" 
+							@if(!$bool)
+								disabled
+							@endif
+							value="Excluir">
 						</form>
 					</div>
 				</div>

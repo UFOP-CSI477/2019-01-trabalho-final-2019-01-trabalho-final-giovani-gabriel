@@ -27,11 +27,11 @@
                         <div class="form-group row">
                             <label for="session_id" class="col-md-4 col-form-label text-md-right">Sessão</label>
                             <div class="col-md-6">
-                                <select  class="form-control" name="released">
+                                <select  class="form-control" name="session_id">
                                     @foreach ($sessions as $session)
                                         @foreach ($films as $film)
                                             @if($session->film_id == $film->id)
-                                                <option value="session->id" 
+                                                <option value="{{$session->id}}" 
                                                     @if($film->id == $session->film_id)
                                                         selected
                                                     @endif
@@ -45,9 +45,9 @@
                         <div class="form-group row">
                             <label for="user_id" class="col-md-4 col-form-label text-md-right">Usuário</label>
                             <div class="col-md-6">
-                                <select class="form-control" name="released">
+                                <select class="form-control" name="user_id">
                                     @foreach ($users as $user)
-                                        <option value="user->id" selected >{{$user->id}}: {{$user->name}}</option>
+                                        <option value="{{$user->id}}" selected >{{$user->id}}: {{$user->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
