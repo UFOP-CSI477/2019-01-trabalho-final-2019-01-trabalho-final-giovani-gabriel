@@ -19,7 +19,7 @@ class SessionController extends Controller
 
     public function index(){
         if(Auth::user()->type == 1){
-            $sessions = Session::all();
+            $sessions = Session::orderBy('date', 'asc')->get();
             $films = Film::all();
             return view('sessions.index')->with('sessions', $sessions)->with('films', $films);
         }
@@ -107,7 +107,7 @@ class SessionController extends Controller
     public function edit(Session $session)
     {
         if(Auth::user()->type == 1){
-            $films = Film::all();
+            $films = Film::where('released', 1)->get();
             $rooms = Room::all();
             return view('sessions.edit')->with('session',$session)->with('films', $films)->with('rooms', $rooms);
         }

@@ -48,12 +48,11 @@
                 </li> 
                 @endif
             </ul>
-
             <ul class="navbar-nav navbar-right mr-2">
                 @if (Auth::check())
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toogle" href="#" data-toggle="dropdown">{{Auth::user()->name}}</a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="{{ url('/logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
                         <a class="dropdown-item" href="{{route('user.show',Auth::user()->id )}}">Meu perfil</a>
 

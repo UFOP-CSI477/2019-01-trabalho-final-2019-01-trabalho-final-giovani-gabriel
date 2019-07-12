@@ -19,9 +19,9 @@ class TicketController extends Controller
 
     public function index(){
         if(Auth::user()->type == 1){
-            $sessions = Session::all();
+            $sessions = Session::orderBy('date', 'asc')->get();
             $tickets = Ticket::all();
-            $films = Film::all();
+            $films = Film::orderBy('title', 'asc')->get();
             $users = User::all();
             return view('tickets.index')->with('tickets', $tickets)->with('sessions', $sessions)->with('users', $users)->with('films', $films);
         }

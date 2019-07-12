@@ -26,7 +26,6 @@
 	@php
 	$break = 0;
 	@endphp
-	<div class="card-deck">
 		@foreach($films as $film)
 		@if($break % 2 == 0)
 		<div class="card-deck">
@@ -52,7 +51,6 @@
 						</div>
 					</div>
 				</div>
-
 			</div>
 			@if($break % 2 == 1)
 		</div>
@@ -61,9 +59,9 @@
 		$break++;
 		@endphp
 		@endforeach
-		@if($break % 2 == 0)
+		@if($break % 2 == 1)
 	</div>
 	@endif
 </div>
-</div>
+
 @endsection
